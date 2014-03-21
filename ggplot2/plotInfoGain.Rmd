@@ -1,0 +1,23 @@
+Plotting Info Gain as Teng, Adamic, Lin paper
+========================================================
+
+We want to produce similar plot as Figure 8 in http://arxiv.org/abs/1111.3919
+
+**Recipe recommendation using ingredient networks** (2012)
+Chun-Yuen Teng, Yu-Ru Lin, Lada A. Adamic
+
+```{r}
+#setwd("C:\\Users\\Denis\\Dropbox\\HT2014Twitter\\data");
+df.infog <- read.csv("featureInfoGain.csv",header=TRUE);
+str(df.infog);
+head(df.infog);
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+library(ggplot2)
+ggplot(data=df.infog,aes(x=id,y=InfoGain,fill=Group)) + geom_bar(stat = "identity");
+
+```
+
