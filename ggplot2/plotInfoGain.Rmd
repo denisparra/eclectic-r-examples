@@ -7,7 +7,7 @@ We want to produce similar plot as Figure 8 in http://arxiv.org/abs/1111.3919
 Chun-Yuen Teng, Yu-Ru Lin, Lada A. Adamic
 
 ```{r}
-#setwd("C:\\Users\\Denis\\Dropbox\\HT2014Twitter\\data");
+setwd("C:\\Users\\Denis\\Dropbox\\HT2014Twitter\\data");
 df.infog <- read.csv("featureInfoGain.csv",header=TRUE);
 str(df.infog);
 head(df.infog);
@@ -21,3 +21,7 @@ ggplot(data=df.infog,aes(x=id,y=InfoGain,fill=Group)) + geom_bar(stat = "identit
 
 ```
 
+Another version of the plot
+```{r fig.width=7.5, fig.height=6}
+ggplot(data=df.infog,aes(x=id,y=InfoGain,fill=Group)) + geom_bar(stat = "identity") + geom_bar(stat = "identity",colour="black", show_guide=FALSE) + theme_bw(base_size = 14, base_family = "") + xlab("Features") + theme(legend.title = element_text(size=14, face="bold")) + scale_fill_discrete(name="Feature Group")
+```
